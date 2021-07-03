@@ -197,36 +197,6 @@ namespace Projekt_Notatnik
 
         }
 
-        /*
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-            if (toolStripComboBox1.SelectedItem == "Zielony")
-            {
-                richTextBox1.ForeColor = Color.Green;
-            }
-            if (toolStripComboBox1.SelectedItem == "Czerwony")
-            {
-                richTextBox1.ForeColor = Color.Red;
-            }
-            if (toolStripComboBox1.SelectedItem == "Jasnozielony")
-            {
-                richTextBox1.ForeColor = Color.Cyan;
-            }
-            if (toolStripComboBox1.SelectedItem == "Szary")
-            {
-                richTextBox1.ForeColor = Color.Gray;
-            }
-            if (toolStripComboBox1.SelectedItem == "Pomarańczowy")
-            {
-                richTextBox1.ForeColor = Color.Orange;
-            }
-            if (toolStripComboBox1.SelectedItem == "Czarny")
-            {
-                richTextBox1.ForeColor = Color.Black;
-            }
-        }
-        */
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -274,4 +244,35 @@ namespace Projekt_Notatnik
                     }
                 }
             }
+*/
+
+/*
+private void toolStripComboBox1_Click(object sender, EventArgs e)
+{
+
+    if (toolStripComboBox1.SelectedItem == "Zielony")
+    {
+        richTextBox1.ForeColor = Color.Green;
+    }
+    if (toolStripComboBox1.SelectedItem == "Czerwony")
+    {
+        richTextBox1.ForeColor = Color.Red;
+    }
+    if (toolStripComboBox1.SelectedItem == "Jasnozielony")
+    {
+        richTextBox1.ForeColor = Color.Cyan;
+    }
+    if (toolStripComboBox1.SelectedItem == "Szary")
+    {
+        richTextBox1.ForeColor = Color.Gray;
+    }
+    if (toolStripComboBox1.SelectedItem == "Pomarańczowy")
+    {
+        richTextBox1.ForeColor = Color.Orange;
+    }
+    if (toolStripComboBox1.SelectedItem == "Czarny")
+    {
+        richTextBox1.ForeColor = Color.Black;
+    }
+}
 */
