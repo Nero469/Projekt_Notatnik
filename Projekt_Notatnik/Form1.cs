@@ -13,6 +13,7 @@ namespace Projekt_Notatnik
     public partial class Form1 : Form
     {
         //string sciezka;
+
         private SaveFileDialog saveFileDialog;
         private OpenFileDialog openFileDialog;
         private FontDialog czcionkaDialog;
@@ -21,6 +22,7 @@ namespace Projekt_Notatnik
         public Form1()
         {
             InitializeComponent();
+            Nowyplik();
         }
 
         private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,10 +54,12 @@ namespace Projekt_Notatnik
 
         private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OtworzPlik();
+
+            this.richTextBox1.Text=OtworzPlik();
+
         }
 
-        private void OtworzPlik()
+        public string OtworzPlik()
         {
             try
             {
@@ -63,18 +67,22 @@ namespace Projekt_Notatnik
 
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    this.richTextBox1.Text = File.ReadAllText(openFileDialog.FileName);
                     this.Text = openFileDialog.FileName;
+                    return File.ReadAllText(openFileDialog.FileName);
+                    
+                    
                 }
             }
             catch
             {
                 MessageBox.Show("Błąd podczas próby otwarcia pliku !");
+
             }
-            finally
-            {
-                openFileDialog = null; 
-            }
+
+                openFileDialog = null;
+                return "Pusty string";
+
+            
         }
 
         private void zapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,37 +123,31 @@ namespace Projekt_Notatnik
 
         private void zapiszJakoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ZapiszJako();
+            ZapiszJako(this.richTextBox1.Text);
         }
 
-        private void ZapiszJako()
+        public string ZapiszJako(string text)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(this.richTextBox1.Text))
+
+                if (!string.IsNullOrEmpty(text))
                 {
                     saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "Text File (*.txt)| *.txt! All Files (*.*)| *.*";
+                saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllText(saveFileDialog.FileName, this.richTextBox1.Text);
+                        File.WriteAllText(saveFileDialog.FileName, text);
                         this.Text = saveFileDialog.FileName;
-                        this.Close();
+                        return saveFileDialog.FileName; //zwrot sciezki
+                        //this.Close();
+
                     }
                 }
                 else
                 {
                     MessageBox.Show("Plik jest pusty");
                 }
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-
-            }
+            
+            return null;
         }
 
         private void wyjdźToolStripMenuItem_Click(object sender, EventArgs e)
@@ -224,6 +226,11 @@ namespace Projekt_Notatnik
             {
                 richTextBox1.ForeColor = Color.Black;
             }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
