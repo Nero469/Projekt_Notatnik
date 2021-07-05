@@ -13,33 +13,25 @@ namespace Projekt_Notatnik
     public partial class Form1 : Form
     {
         //string sciezka;
-        /// <summary>
-        /// Utworzenie własnych obiektów
-        /// </summary>
+
         private SaveFileDialog saveFileDialog;
         private OpenFileDialog openFileDialog;
         private FontDialog czcionkaDialog;
 
-        /// <summary>
-        /// Konstruktor programu, metoda wymagana do obsługi projektanta
-        /// </summary>
+
         public Form1()
         {
             InitializeComponent();
             Nowyplik();
         }
-        /// <summary>
-        /// Wywołanie obiektu ToolStripMenuItem oraz funckji utworzenia nowego pliku
-        /// </summary>
+
         private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Nowyplik();
             //sciezka = string.Empty;
             //richTextBox1.Clear();
         }
-        /// <summary>
-        /// Utworznie nowego pliku
-        /// </summary>
+
         private void Nowyplik()
         {
             try
@@ -60,18 +52,13 @@ namespace Projekt_Notatnik
             }
         }
 
-        /// <summary>
-        /// Funkcja otwarcia pliku i załadowania zawartości tekstowej do obiektu
-        /// </summary>
         private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             this.richTextBox1.Text=OtworzPlik();
 
         }
-        /// <summary>
-        /// Otwarcie i załadowanie istniejącego pliku tekstowego
-        /// </summary>
+
         public string OtworzPlik()
         {
             try
@@ -82,7 +69,8 @@ namespace Projekt_Notatnik
                 {
                     this.Text = openFileDialog.FileName;
                     return File.ReadAllText(openFileDialog.FileName);
-                
+                    
+                    
                 }
             }
             catch
@@ -96,17 +84,13 @@ namespace Projekt_Notatnik
 
             
         }
-        /// <summary>
-        /// Wywołanie funkcji ZapiszPlik() po wcisnieciu danego działania
-        /// </summary>
+
         private void zapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ZapiszPlik();
 
         }
-        /// <summary>
-        /// Funkcja Zapisu stanu pliku
-        /// </summary>
+
         private void ZapiszPlik()
         {
             try
@@ -137,16 +121,11 @@ namespace Projekt_Notatnik
             }
         }
 
-        /// <summary>
-        /// Wywołanie funkcji zapisu pliku 
-        /// </summary>
         private void zapiszJakoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ZapiszJako(this.richTextBox1.Text);
         }
-        /// <summary>
-        /// Funkcja zapisu pliku wraz z wywołaniem okna, gdzie wyznaczamy lokalizacje zapisywanego pliku
-        /// </summary>
+
         public string ZapiszJako(string text)
         {
 
@@ -170,9 +149,7 @@ namespace Projekt_Notatnik
             
             return null;
         }
-        /// <summary>
-        /// Funkcja sprawdzeniu zawartości pola tekstowego oraz po spełnieniu/niespełnieniu warunku następuje działanie
-        /// </summary>
+
         private void wyjdźToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -196,9 +173,6 @@ namespace Projekt_Notatnik
             }
         }
 
-        /// <summary>
-        /// Funkcja zmiany czcionki bo wybraniu nowej
-        /// </summary>
         private void czcionkaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             czcionkaDialog = new FontDialog();
@@ -207,9 +181,7 @@ namespace Projekt_Notatnik
                 this.richTextBox1.Font = czcionkaDialog.Font;
             }
         }
-        /// <summary>
-        /// Utworzenie obiektu rozwijalnego
-        /// </summary>
+
         private void pomocToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAbout win = new FormAbout();
@@ -227,9 +199,7 @@ namespace Projekt_Notatnik
 
         }
 
-        /// <summary>
-        /// Funkcja wyboru koloru czcionki w postaci listy rozwijalnej 
-        /// </summary>
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem == "Zielony")
@@ -262,22 +232,6 @@ namespace Projekt_Notatnik
         {
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
-
-/// <summary>
-/// Co robi metoda
-/// </summary>
-/// <param name="parametr1">co to za parametr</param>
-/// <param name="parametr2">co to za parametr</param>
-/// <returns>co zwraca</returns>
-/// 
-
-/// <param name="sender"></param>
-/// <param name="e"></param>
