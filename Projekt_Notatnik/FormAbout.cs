@@ -17,7 +17,9 @@ namespace Projekt_Notatnik
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Funkcja wyjścia z aplikacji po kliknięciu przycisku "Wyjdz "
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
